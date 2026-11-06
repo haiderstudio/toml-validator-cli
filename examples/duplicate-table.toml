@@ -1,0 +1,6 @@
+# Bad on purpose: the [server] table is declared twice.
+[server]
+host = "localhost"
+
+[server]
+port = 8080

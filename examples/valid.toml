@@ -1,0 +1,13 @@
+# A small, valid config file.
+name = "example-site"
+version = "1.2.3"
+debug = false
+ports = [80, 443]
+started = 2026-01-15
+
+[server]
+host = "localhost"
+port = 8080
+
+[server.tls]
+enabled = true

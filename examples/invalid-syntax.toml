@@ -1,0 +1,3 @@
+# Bad on purpose: the string on line 2 is never closed.
+name = "example-site
+version = "1.2.3"

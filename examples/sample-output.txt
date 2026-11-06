@@ -1,0 +1,17 @@
+--- valid file ---
+VALID   examples/valid.toml
+OK — 1 file(s) valid.
+--- bad files ---
+INVALID examples/invalid-syntax.toml:2:21: Illegal character '\n'
+  name = "example-site
+                      ^
+INVALID examples/duplicate-key.toml:4:16: Cannot overwrite a value
+  name = "second"
+                 ^
+INVALID examples/duplicate-table.toml:5:8: Cannot declare ('server',) twice
+  [server]
+         ^
+Checked 3 file(s), 3 invalid.
+--- required key ---
+INVALID examples/valid.toml: missing required key 'license'
+Checked 1 file(s), 1 invalid.

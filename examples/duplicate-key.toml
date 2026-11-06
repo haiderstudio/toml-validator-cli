@@ -1,0 +1,4 @@
+# Bad on purpose: the key "name" appears twice.
+name = "first"
+version = "1.0.0"
+name = "second"
