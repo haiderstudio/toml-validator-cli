@@ -182,6 +182,7 @@ def check_required(data, required, required_types):
             )
             continue
         key, wanted = rule.split("=", 1)
+        key = key.strip()
         wanted = wanted.strip()
         if wanted not in TYPE_NAMES:
             problems.append(
