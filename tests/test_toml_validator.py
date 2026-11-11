@@ -145,6 +145,22 @@ class TestRequiredKeys(unittest.TestCase):
             ["bad --require-type 'port=widget' (unknown type 'widget')"],
         )
 
+    def test_require_type_key_whitespace_is_stripped(self):
+        data = {"port": 8080}
+        problems = toml_validator.check_required(data, [], ["port = integer"])
+        self.assertEqual(problems, [])
+
+    def test_require_type_key_whitespace_cli(self):
+        code, out, _err = run_cli(
+            [], stdin_text="port = 8080\n",
+        )
+        self.assertEqual(code, 0)
+        code, out, _err = run_cli(
+            ["--require-type", "port = integer"], stdin_text="port = 8080\n",
+        )
+        self.assertEqual(code, 0)
+        self.assertIn("VALID   <stdin>", out)
+
 
 class TestCli(unittest.TestCase):
     def setUp(self):
